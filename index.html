@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Landing Page - Bento Grid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /*
+         * Technical Rules
+         * 1. Internal CSS
+         * 2. Fully Responsive (Grid on desktop, stacked on mobile)
+         * 3. Modern Sans-serif Font (Inter)
+         * 4. Clean Color Palette
+         */
+
+        :root {
+            --color-bg: #f8f9fa; /* Very Light Grey/Off-White */
+            --color-card-bg: #ffffff; /* White */
+            --color-text-primary: #212529; /* Dark Grey/Black */
+            --color-text-secondary: #6c757d; /* Muted Grey */
+            --color-accent: #0077b6; /* Scientific Blue */
+            --card-border-radius: 12px;
+            --card-padding: 20px;
+        }
+
+        /* --- Global Styles --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px; /* Max width for the grid */
+        }
+
+        /* --- Bento Grid Styles (Desktop) --- */
+        .bento-grid {
+            display: grid;
+            /* 4 columns: 1fr 1fr 1fr 1fr */
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(150px, auto); /* Minimum row height */
+            gap: 15px; /* Spacing between cards */
+        }
+
+        /* --- Card Styles --- */
+        .card {
+            background-color: var(--color-card-bg);
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle lift effect */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* Keep content inside bounds */
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+
+        /* --- Layout Mapping (Desktop) --- */
+
+        /* Card 1 (Profile): Large box (2x2) */
+        #card-profile {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* Card 2 (Location): Small box (1x1) */
+        #card-location {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* Card 3 (Tech Stack): Medium box (1x1) */
+        #card-tech-stack {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* Card 4 (Case Study): Medium box (2x1) */
+        #card-case-study {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        /* Card 5 (Hobby): Small box (1x1) - Placed below Card 3 */
+        #card-hobby {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* Card 6 (Playlist): Wide box at the bottom (4x1) */
+        #card-playlist {
+            grid-column: span 4;
+            /* Flex content to stack title and a large placeholder */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Specific Content Styling */
+        .profile-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            margin: 0 0 5px 0;
+        }
+
+        .profile-subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .social-link:hover {
+            color: var(--color-accent);
+        }
+        
+        .location-time {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        .playlist-placeholder {
+            background-color: #e9ecef; /* Lighter grey for placeholder */
+            border-radius: 8px;
+            height: 100px; /* Example height for a music player */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-secondary);
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        /* --- Responsive Design (Mobile Stacking) --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .bento-grid {
+                /* On mobile, switch to a single column */
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+                gap: 12px;
+            }
+
+            .card {
+                /* Reset span for mobile to ensure stacking */
+                grid-column: 1 / -1;
+                grid-row: auto;
+                min-height: 120px; /* Ensure small cards have some size */
+            }
+
+            /* Adjust text sizes for better fit on small screens */
+            .profile-title {
+                font-size: 2rem;
+            }
+            .profile-subtitle {
+                font-size: 1rem;
+            }
+            .location-time {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bento-grid">
+
+            <div id="card-profile" class="card">
+                <div class="card-header">Student Profile</div>
+                <div class="card-content">
+                    <h1 class="profile-title">Alex M. Chen</h1>
+                    <h2 class="profile-subtitle">Food Technology Student</h2>
+                    <p><strong>Year:</strong> Third Year (Semester 5)</p>
+                    <p>A dedicated student focused on the intersection of food science, engineering, and sustainable practices.</p>
+                </div>
+                <div>
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">GitHub</a>
+                    <a href="#" class="social-link">Portfolio</a>
+                </div>
+            </div>
+
+            <div id="card-location" class="card">
+                <div class="card-header">Current Location</div>
+                <p><strong>Campus:</strong> UMT (Universiti Malaysia Terengganu)</p>
+                <div class="location-time">1:23 PM</div>
+            </div>
+
+            <div id="card-tech-stack" class="card">
+                <div class="card-header">Core Subjects</div>
+                <p class="card-title">Technical Expertise</p>
+                <div class="card-content">
+                    <p>Food Chemistry, Food Microbiology, Unit Operations in Food Processing, Nutrition and Dietetics.</p>
+                </div>
+            </div>
+
+            <div id="card-case-study" class="card">
+                <div class="card-header">Recent Work</div>
+                <p class="card-title">Case Study: Fermentation Optimization</p>
+                <div class="card-content">
+                    <p>Optimization of Yeast-Based Fermentation Parameters for Enhanced Production of a Bioactive Compound. Focus on $\text{pH}$ and temperature control.</p>
+                </div>
+            </div>
+
+            <div id="card-hobby" class="card">
+                <div class="card-header">Campus Activity</div>
+                <p class="card-title">Outdoor Club</p>
+                <div class="card-content">
+                    <p>Active member of the University Outdoor Club, focusing on sustainable hiking and local conservation efforts.</p>
+                </div>
+            </div>
+
+            <div id="card-playlist" class="card">
+                <div class="card-header">Study Soundtrack</div>
+                <p class="card-title">Focus & Chill Playlist</p>
+                <div class="playlist-placeholder">
+                    [Placeholder for Music Player Widget]
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
