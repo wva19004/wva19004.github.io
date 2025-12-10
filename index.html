@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Landing Page - Bento Grid</title>
+    <title>Fdaus Isa - Student Landing Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         /*
@@ -11,7 +11,7 @@
          * 1. Internal CSS
          * 2. Fully Responsive (Grid on desktop, stacked on mobile)
          * 3. Modern Sans-serif Font (Inter)
-         * 4. Clean Color Palette
+         * 4. Clean Color Palette (Updated Accent: Ocean Blue)
          */
 
         :root {
@@ -19,7 +19,7 @@
             --color-card-bg: #ffffff; /* White */
             --color-text-primary: #212529; /* Dark Grey/Black */
             --color-text-secondary: #6c757d; /* Muted Grey */
-            --color-accent: #0077b6; /* Scientific Blue */
+            --color-accent: #004e92; /* Deep Ocean Blue (UMT Theme) */
             --card-border-radius: 12px;
             --card-padding: 20px;
         }
@@ -143,6 +143,13 @@
             color: var(--color-accent);
             margin-bottom: 20px;
         }
+        
+        .profile-tagline {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-top: 10px;
+        }
 
         .social-link {
             display: inline-block;
@@ -160,7 +167,7 @@
         .location-time {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--color-accent);
+            color: var(--color-text-primary);
         }
 
         .playlist-placeholder {
@@ -215,45 +222,45 @@
             <div id="card-profile" class="card">
                 <div class="card-header">Student Profile</div>
                 <div class="card-content">
-                    <h1 class="profile-title">Alex M. Chen</h1>
-                    <h2 class="profile-subtitle">Food Technology Student</h2>
-                    <p><strong>Year:</strong> Third Year (Semester 5)</p>
-                    <p>A dedicated student focused on the intersection of food science, engineering, and sustainable practices.</p>
+                    <h1 class="profile-title">Fdaus Isa</h1>
+                    <h2 class="profile-subtitle">Food Technology (Year 1)</h2>
+                    <p class="profile-tagline">'Innovating food safety.'</p>
+                    <p>Focused on foundational principles of food science and quality assurance.</p>
                 </div>
                 <div>
                     <a href="#" class="social-link">LinkedIn</a>
                     <a href="#" class="social-link">GitHub</a>
-                    <a href="#" class="social-link">Portfolio</a>
+                    <a href="#" class="social-link">UMT Portal</a>
                 </div>
             </div>
 
             <div id="card-location" class="card">
                 <div class="card-header">Current Location</div>
-                <p><strong>Campus:</strong> UMT (Universiti Malaysia Terengganu)</p>
-                <div class="location-time">1:23 PM</div>
+                <p><strong>Campus:</strong> UMT, Kuala Nerus</p>
+                <div class="location-time">1:40 PM</div>
             </div>
 
             <div id="card-tech-stack" class="card">
-                <div class="card-header">Core Subjects</div>
-                <p class="card-title">Technical Expertise</p>
+                <div class="card-header">Core Expertise</div>
+                <p class="card-title">Key Modules</p>
                 <div class="card-content">
-                    <p>Food Chemistry, Food Microbiology, Unit Operations in Food Processing, Nutrition and Dietetics.</p>
+                    <p><strong>Food Chemistry</strong>, **Microbiology**, **Excel** (Data Analysis), **Lab Analysis**.</p>
                 </div>
             </div>
 
             <div id="card-case-study" class="card">
-                <div class="card-header">Recent Work</div>
-                <p class="card-title">Case Study: Fermentation Optimization</p>
+                <div class="card-header">Recent Lab Work</div>
+                <p class="card-title">Starch Gelatinization in Local Kuih</p>
                 <div class="card-content">
-                    <p>Optimization of Yeast-Based Fermentation Parameters for Enhanced Production of a Bioactive Compound. Focus on $\text{pH}$ and temperature control.</p>
+                    <p>Analyzing texture profiles of **Kuih Lapis** by varying moisture content and cooking time. Focus on thermal stability and $\text{A}_w$ (water activity).</p>
                 </div>
             </div>
 
             <div id="card-hobby" class="card">
-                <div class="card-header">Campus Activity</div>
-                <p class="card-title">Outdoor Club</p>
+                <div class="card-header">Activity</div>
+                <p class="card-title">Campus Break</p>
                 <div class="card-content">
-                    <p>Active member of the University Outdoor Club, focusing on sustainable hiking and local conservation efforts.</p>
+                    <p>Evening walks and reflection at **Pantai UMT** (University Beach).</p>
                 </div>
             </div>
 
@@ -261,7 +268,7 @@
                 <div class="card-header">Study Soundtrack</div>
                 <p class="card-title">Focus & Chill Playlist</p>
                 <div class="playlist-placeholder">
-                    [Placeholder for Music Player Widget]
+                    [Placeholder for Spotify/YouTube Music Player Widget]
                 </div>
             </div>
 
