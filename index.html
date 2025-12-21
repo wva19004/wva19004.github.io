@@ -530,7 +530,60 @@
 			border-color: var(--accent);
 			color: var(--accent);
 		}
+		
+		/* New layout for the Case Study card internals */
+		.case-study-layout {
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    gap: 20px;
+		}
 
+		/* Wrapper to keep text organized on the left */
+		.case-text-wrapper {
+		    flex: 1;
+		}
+
+		/* The Lab Timer Button Style */
+		.lab-timer-btn {
+		    display: inline-flex;
+		    align-items: center;
+		    gap: 8px;
+		    background: rgba(15, 23, 42, 0.6); /* Dark semi-transparent */
+		    border: 1px solid var(--accent); /* Blue border */
+		    color: var(--accent); /* Blue text */
+		    padding: 10px 20px;
+		    border-radius: 99px;
+		    text-decoration: none;
+		    font-size: 13px;
+		    font-weight: 600;
+		    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		    white-space: nowrap; /* Keeps text on one line */
+		    backdrop-filter: blur(4px);
+		}
+
+		/* Hover Effect: Fills with blue and glows */
+		.lab-timer-btn:hover {
+		    background: var(--accent);
+		    color: var(--card-bg-soft); /* Dark text */
+		    transform: translateY(-2px);
+		    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6); /* Neon glow */
+		    border-color: var(--accent);
+		}
+
+		/* Mobile responsive fix for the button layout */
+		@media (max-width: 600px) {
+		    .case-study-layout {
+		        flex-direction: column;
+		        align-items: flex-start;
+		    }
+		    
+		    .lab-timer-btn {
+		        width: 100%;
+		        justify-content: center;
+		        margin-top: 12px;
+		    }
+		}
 		/* Responsiveness */
 		@media (max-width: 900px) {
 			.grid {
@@ -715,21 +768,35 @@
 
 			<!-- Card 4: Case Study -->
 			<section class="card card-case-study">
-				<div class="card-header">
-					<div class="card-title">Case study</div>
-				</div>
-				<div class="card-body">
-					<div class="case-title-placeholder">
-						Starch Gelatinization in Local Kuih
-					</div>
-					<div class="case-desc-placeholder">
-						Analyzing texture profiles of Kuih Lapis vs. Kuih Talam.
-					</div>
-					<div class="case-meta-row">
-						<span>Lab experiment · Food Technology</span>
-						<span>Week / Semester placeholder</span>
-					</div>
-				</div>
+			    <div class="card-header">
+			        <div class="card-title">Case study</div>
+			    </div>
+			    <div class="card-body">
+			        <div class="case-study-layout">
+			            
+			            <div class="case-text-wrapper">
+			                <div class="case-title-placeholder">
+			                    Starch Gelatinization in Local Kuih
+			                </div>
+			                <div class="case-desc-placeholder">
+			                    Analyzing texture profiles of Kuih Lapis vs. Kuih Talam.
+			                </div>
+			                <div class="case-meta-row">
+			                    <span>Lab experiment · Food Technology</span>
+			                    <span>Week 12</span>
+			                </div>
+			            </div>
+
+			            <a href="https://wva19004.github.io/lab-timer-app/app.html" class="lab-timer-btn">
+			                <span>Try My Lab Timer App</span>
+			                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+			                    <path d="M5 12h14"></path>
+			                    <path d="M12 5l7 7-7 7"></path>
+			                </svg>
+			            </a>
+
+			        </div>
+			    </div>
 			</section>
 
 			<!-- Card 5: Hobby -->
