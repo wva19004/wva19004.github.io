@@ -37,6 +37,16 @@
 			align-items: flex-start;
 			padding: 32px 16px;
 		}
+		/* background particle */
+		#particles-js {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    z-index: -1; /* Places it behind the content */
+		    pointer-events: none; /* Ensures you can still click buttons/links */
+		}
 
 		.page-shell {
 			width: 100%;
@@ -88,17 +98,22 @@
 			grid-auto-rows: minmax(120px, auto);
 			gap: 16px;
 		}
-
+		
 		.card {
-			position: relative;
-			background: radial-gradient(circle at top left, #1e293b 0, #020617 60%);
-			border-radius: var(--radius-lg);
-			border: var(--border-subtle);
-			box-shadow: var(--shadow-soft);
-			padding: 16px 18px;
-			overflow: hidden;
+		    position: relative;
+		    /* 0.75 and 0.85 represent 75% and 85% opacity */
+		    background: radial-gradient(circle at top left, rgba(30, 41, 59, 0.25) 0%, rgba(2, 6, 23, 0.3) 100%);
+		    
+		    /*  This adds the "Frosted Glass" blur effect */
+		    backdrop-filter: blur(2px);
+		    -webkit-backdrop-filter: blur(2px); /* For Safari */
+		    
+		    border-radius: var(--radius-lg);
+		    border: var(--border-subtle);
+		    box-shadow: var(--shadow-soft);
+		    padding: 16px 18px;
+		    overflow: hidden;
 		}
-
 		.card::before {
 			content: "";
 			position: absolute;
@@ -641,6 +656,7 @@
 	</style>
 </head>
 <body>
+	<div id="particles-js"></div>
 	<div class="page-shell">
 		<header class="header">
 			<div>
@@ -857,6 +873,113 @@
 			</section>
 		</main>
 	</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff" /* Star color */
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#38bdf8", /* Matches your --accent variable */
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 2, /* Speed of movement */
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "window",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "grab" /* Lines connect to mouse */
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 140,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+</script>
 <script>
 	function updateGMT8Time() {
 		const el = document.getElementById("gmt8-time");
